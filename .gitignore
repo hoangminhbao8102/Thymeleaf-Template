@@ -1,1 +1,18 @@
+# Maven
 /ThymeleafTemplateDemo/target/
+/.mvn
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
