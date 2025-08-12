@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="content">
+<head th:replace="~{fragments/_head :: head(~{::title})}">
+    <title>Layout</title>
+</head>
+<body>
+<header th:replace="~{fragments/_header :: header}"></header>
+
+<main class="container">
+    <!-- Chèn phần <body> của trang con vào đây -->
+    <div th:insert="~{::body}"></div>
+</main>
+
+<footer th:replace="~{fragments/_footer :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<body th:fragment="footer">
+<hr/>
+<p class="muted">© <span th:text="${#calendars.format(#calendars.createNow(), 'yyyy')}"></span> - Thymeleaf Template Demo</p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: content}">
+<body>
+<div>
+    <h1 th:text="${title}">Thymeleaf Template Demo</h1>
+    <p>Ví dụ về layout (fragment), danh sách, form validation, và trang chi tiết.</p>
+    <p><a th:href="@{/products}" class="btn">Xem Products</a></p>
+</div>
+</body>
+</html>

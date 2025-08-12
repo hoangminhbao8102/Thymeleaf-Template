@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: content}">
+<body>
+<section class="container">
+  <div class="toolbar">
+    <h2 th:text="${pageTitle}">Product List</h2>
+    <a th:href="@{/products/new}" class="btn">+ Create</a>
+  </div>
+
+  <!-- Flash message -->
+  <p th:if="${msg}" th:text="${msg}" class="alert"></p>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th><th>Name</th><th>Price</th><th>Stock</th><th style="width:180px"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p, iStat : ${products}">
+      <td th:text="${p.id}">1</td>
+      <td>
+        <a th:href="@{|/products/${p.id}|}" th:text="${p.name}">Name</a>
+      </td>
+      <td th:text="${#numbers.formatDecimal(p.price, 1, 2)}">0.00</td>
+      <td th:text="${p.stock}">0</td>
+      <td>
+        <a th:href="@{|/products/${p.id}/edit|}" class="link">Edit</a>
+        <form th:action="@{|/products/${p.id}/delete|}" method="post" style="display:inline">
+          <button type="submit" class="link danger"
+                  onclick="return confirm('Delete this product?')">Delete</button>
+        </form>
+      </td>
+    </tr>
+
+    <!-- Khi rỗng -->
+    <tr th:if="${#lists.isEmpty(products)}">
+      <td colspan="5">No data</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+</body>
+</html>

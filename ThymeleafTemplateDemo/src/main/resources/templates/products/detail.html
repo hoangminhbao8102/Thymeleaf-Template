@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: content}">
+<body>
+<h2 th:text="${pageTitle}">Detail</h2>
+<article class="card">
+    <h3 th:text="${product.name}">Name</h3>
+    <p th:text="${product.description}">desc</p>
+    <p><b>Price:</b> <span th:text="${#numbers.formatDecimal(product.price,1,2)}">0.00</span></p>
+    <p><b>Stock:</b> <span th:text="${product.stock}">0</span></p>
+    <div>
+        <a th:href="@{/products}" class="btn secondary">Back</a>
+        <a th:href="@{|/products/${product.id}/edit|}" class="btn">Edit</a>
+    </div>
+</article>
+</body>
+</html>
